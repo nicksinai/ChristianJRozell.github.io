@@ -2,6 +2,28 @@
 <html>
   <head>
     <style>
+      .sidenavsss {
+        height: 100%;
+        width: 175px;
+        position: fixed;
+        z-index: 1;
+        top: 0;
+        left: 0;
+        background-color: black;
+        overflow-x: hidden;
+        padding-top: 20px;
+      }
+
+      .mightneedtodelete a {
+        padding: 6px 8px 55px 12px;
+        text-decoration: none;
+        font-size: 45px;
+        color:ghostwhite;
+        display: block;
+      }
+      .yayyet {
+        color:red;
+      }
       body,
       html {
         height: 100%;
@@ -9,21 +31,20 @@
       }
       .container {
         position: relative;
-        text-align: center;
+        text-align: left;
         color: black;
       }
       .center {
         position: absolute;
         top: 15%;
-        left: 35%;
+        left: 30%;
         font-size: 120px;
         text-align: center;
       }
       .input {
         position: absolute;
-        top: 30%;
-        left: 44%;
-        size: 120px;
+        top: 50%;
+        left: 35%;
       }
     </style>
     <title>Dibs Game</title>
@@ -35,9 +56,24 @@
       <div class="input">
         <form action="/action_page.php">
           <label for="input car">Input Car Here:</label><br>
-          <input type="text" id="input car" name="input car"><br>
+          <input type="text" id="input car" name="input car" size="50"><br>
           <input type="submit" value="Enter"></div>
-        </form>  
-    </div>
+        </form>
+        <div class="sidenav" style="display:none" id="sidebar">
+          <button onclick="close()" class="closeButton">Close &times;</button>
+          <a href="Tutorial" class="Tutorial">Tutorial</a>
+          <a href="Garages" class="Garages">Garages</a>
+        </div>
+        <div class="sidenavopen">
+          <button class="HamburgerButton" onclick="open()">☰</button>
+        <div class="container"></div>
+        </div>
+
+        </div>  
+    <script>
+      function open() {
+
+      }
+    </script>
   </body>
 </html>
