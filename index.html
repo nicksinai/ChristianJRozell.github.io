@@ -2,28 +2,6 @@
 <html>
   <head>
     <style>
-      .sidenavsss {
-        height: 100%;
-        width: 175px;
-        position: fixed;
-        z-index: 1;
-        top: 0;
-        left: 0;
-        background-color: black;
-        overflow-x: hidden;
-        padding-top: 20px;
-      }
-
-      .mightneedtodelete a {
-        padding: 6px 8px 55px 12px;
-        text-decoration: none;
-        font-size: 45px;
-        color:ghostwhite;
-        display: block;
-      }
-      .yayyet {
-        color:red;
-      }
       body,
       html {
         height: 100%;
@@ -50,29 +28,35 @@
     <title>Dibs Game</title>
   </head>
   <body>
-    <div class="container">
+    <div class="container"> 
+      <div class="menuContainer"></div>
       <img src="garageimage.jpg" alt="Dib Game" style="width: 100%" />
-      <div class="center">Dibs Game</div>
-      <div class="input">
+      <div class="center">Dibs Game</div> 
+     
+        <div class="w3-sidebar w3-bar-block w3-border-right" style="display:none" id="sidebar">
+          <button onclick="w3_close()" class="w3-bar-item w3-large">Close &times;</button>
+          <a href="#" class="w3-bar-item w3-button">Tutorial</a>
+          <a href="#" class="w3-bar-item w3-button">Garages</a>
+        </div>  
+        <div class="sidenavopen">
+          <button class="w3-button w3-teal w3-xlarge" onclick="w3_open()">☰</button>
+        <div class="w3-container"></div>
+        </div>
+         <div class="input">
         <form action="/action_page.php">
           <label for="input car">Input Car Here:</label><br>
           <input type="text" id="input car" name="input car" size="50"><br>
           <input type="submit" value="Enter"></div>
         </form>
-        <div class="sidenav" style="display:none" id="sidebar">
-          <button onclick="close()" class="closeButton">Close &times;</button>
-          <a href="Tutorial" class="Tutorial">Tutorial</a>
-          <a href="Garages" class="Garages">Garages</a>
-        </div>
-        <div class="sidenavopen">
-          <button class="HamburgerButton" onclick="open()">☰</button>
-        <div class="container"></div>
-        </div>
-
-        </div>  
+        </div> 
+        </div> 
     <script>
-      function open() {
-
+      function w3_open() {
+        document.getElementById("sidebar").style.display = "block";
+        document.getElementById("sidebar").style.width = "30%"
+      }
+      function w3_close() {
+        document.getElementById("sidebar").style.display = "none";
       }
     </script>
   </body>
