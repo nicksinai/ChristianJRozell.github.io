@@ -24,36 +24,48 @@
         top: 50%;
         left: 35%;
       }
+      .menuContainer{
+        position: relative; 
+      }
+      .w3-sidebar {
+        font-size: 100px;
+        position: absolute;
+        top: 10%;
+      }
+      .w3-button{
+        position: absolute;
+        top: 0px;
+        width: 10%;
+        height: 5%;
+      }
     </style>
     <title>Dibs Game</title>
   </head>
   <body>
     <div class="container"> 
-      <div class="menuContainer"></div>
+      <div class="menuContainer">
       <img src="garageimage.jpg" alt="Dib Game" style="width: 100%" />
       <div class="center">Dibs Game</div> 
-     
-        <div class="w3-sidebar w3-bar-block w3-border-right" style="display:none" id="sidebar">
+        <div class="w3-sidebar" style="display:none" id="sidebar">
           <button onclick="w3_close()" class="w3-bar-item w3-large">Close &times;</button>
           <a href="#" class="w3-bar-item w3-button">Tutorial</a>
           <a href="#" class="w3-bar-item w3-button">Garages</a>
         </div>  
         <div class="sidenavopen">
-          <button class="w3-button w3-teal w3-xlarge" onclick="w3_open()">☰</button>
-        <div class="w3-container"></div>
+          <button class="w3-button" onclick="w3_open()">Menu</button>
         </div>
+      </div>
          <div class="input">
         <form action="/action_page.php">
           <label for="input car">Input Car Here:</label><br>
           <input type="text" id="input car" name="input car" size="50"><br>
           <input type="submit" value="Enter"></div>
         </form>
-        </div> 
-        </div> 
+    </div> 
     <script>
       function w3_open() {
         document.getElementById("sidebar").style.display = "block";
-        document.getElementById("sidebar").style.width = "30%"
+        document.getElementById("sidebar").style.width = "30%";
       }
       function w3_close() {
         document.getElementById("sidebar").style.display = "none";
