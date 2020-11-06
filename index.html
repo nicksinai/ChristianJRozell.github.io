@@ -7,7 +7,7 @@
         height: 100%;
         margin: 0;
       }
-      .container {
+      .monkey {
         position: relative;
         text-align: left;
         color: black;
@@ -28,28 +28,44 @@
         position: relative; 
       }
       .w3-sidebar {
-        font-size: 100px;
-        position: absolute;
-        top: 10%;
+        font-size: 75px;
+        color: black;
       }
       .w3-button{
         position: absolute;
         top: 0px;
         width: 10%;
         height: 5%;
+        color: black;
+      }
+      .Tutorial{
+        position: absolute;
+        color: black;
+        top: 5%;
+      }
+      .Garage-button{
+        position: absolute;
+        top: 15%;
+        color: black;
+      }
+      .close-button{
+        position: absolute;
+        top: 25%;
+        width: 8%;
+        height: 4%;
       }
     </style>
     <title>Dibs Game</title>
   </head>
   <body>
-    <div class="container"> 
+    <div class="monkey"> 
       <div class="menuContainer">
       <img src="garageimage.jpg" alt="Dib Game" style="width: 100%" />
       <div class="center">Dibs Game</div> 
         <div class="w3-sidebar" style="display:none" id="sidebar">
-          <button onclick="w3_close()" class="w3-bar-item w3-large">Close &times;</button>
-          <a href="#" class="w3-bar-item w3-button">Tutorial</a>
-          <a href="#" class="w3-bar-item w3-button">Garages</a>
+          <button onclick="w3_close()" class="close-button">Close &times;</button>
+          <a href="#" class="Tutorial">Tutorial</a>
+          <a href="#" class="Garage-button">Garages</a>
         </div>  
         <div class="sidenavopen">
           <button class="w3-button" onclick="w3_open()">Menu</button>
