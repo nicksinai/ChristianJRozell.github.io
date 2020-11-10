@@ -7,6 +7,12 @@
         height: 100%;
         margin: 0;
       }
+      .garage-image {
+        position: fixed;
+        display: grid;
+        height: 100%;
+        
+      }
       .monkey {
         position: relative;
         text-align: left;
@@ -75,7 +81,7 @@
   <body>
     <div class="monkey">
       <div class="menuContainer">
-        <img src="garageimage.jpg" alt="Dib Game" style="width: 100%"/>
+        <img class="garage-image" src="garageimage.jpg" alt="Dib Game" style="width: 100%"/>
         <div class="center">Dibs Game</div>
         <div class="w3-sidebar" style="display: none" id="sidebar">
           <button onclick="w3_close()" class="close-button">
