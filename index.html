@@ -24,33 +24,33 @@
         top: 50%;
         left: 35%;
       }
-      .menuContainer{
-        position: relative; 
+      .menuContainer {
+        position: relative;
       }
       .w3-sidebar {
         font-size: 75px;
         color: black;
       }
-      .w3-button{
+      .w3-button {
         position: absolute;
         top: 0px;
         width: 10%;
         height: 5%;
         color: black;
       }
-      .Tutorial{
+      .Tutorial {
         position: absolute;
         color: black;
         top: 5%;
       }
-      .Garage-button{
+      .Garage-button {
         position: absolute;
         top: 15%;
         color: black;
       }
-      .close-button{
+      .close-button {
         position: absolute;
-        top: 25%;
+        top: 28%;
         width: 8%;
         height: 4%;
       }
@@ -58,26 +58,29 @@
     <title>Dibs Game</title>
   </head>
   <body>
-    <div class="monkey"> 
+    <div class="monkey">
       <div class="menuContainer">
-      <img src="garageimage.jpg" alt="Dib Game" style="width: 100%" />
-      <div class="center">Dibs Game</div> 
-        <div class="w3-sidebar" style="display:none" id="sidebar">
-          <button onclick="w3_close()" class="close-button">Close &times;</button>
+        <img src="garageimage.jpg" alt="Dib Game" style="width: 100%" />
+        <div class="center">Dibs Game</div>
+        <div class="w3-sidebar" style="display: none" id="sidebar">
+          <button onclick="w3_close()" class="close-button">
+            Close &times;
+          </button>
           <a href="#" class="Tutorial">Tutorial</a>
           <a href="#" class="Garage-button">Garages</a>
-        </div>  
+        </div>
         <div class="sidenavopen">
           <button class="w3-button" onclick="w3_open()">Menu</button>
         </div>
       </div>
-         <div class="input">
+      <div class="input">
         <form action="/action_page.php">
-          <label for="input car">Input Car Here:</label><br>
-          <input type="text" id="input car" name="input car" size="50"><br>
-          <input type="submit" value="Enter"></div>
+          <label for="input car">Input Car Here:</label><br />
+          <input type="text" id="input car" name="input car" size="50" /><br />
+          <input type="submit" value="Enter" />
         </form>
-    </div> 
+      </div>
+    </div>
     <script>
       function w3_open() {
         document.getElementById("sidebar").style.display = "block";
