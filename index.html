@@ -37,8 +37,11 @@
         position: relative;
       }
       .w3-sidebar {
+        list-style-type: none;
         font-size: 75px;
-        background: black;
+        background-color: black;
+        margin: 0;
+        padding: 0;
       }
       .w3-button {
         position: fixed;
@@ -82,6 +85,12 @@
         background-color: black;
         color: white;
       }
+      ul {
+        display: block;
+      }
+      li {
+        padding-top: 10px;
+      }
     </style>
     <title>Dibs Game</title>
   </head>
@@ -95,24 +104,27 @@
           style="width: 100%"
         />
         <div class="center">Dibs Game</div>
-        <div class="w3-sidebar" id="sidebar">
-          <button onclick="w3_close()" class="close-button">
-            Close &times;
-          </button>
-          <a href="#" class="Tutorial">Tutorial</a>
-          <a href="#" class="Garage-button">Garages</a>
-        </div>
-        <div class="sidenavopen">
-          <button class="w3-button" onclick="w3_open()">Menu</button>
-        </div>
+        <ul>
+          <li><div class="w3-sidebar" id="sidebar"></div></li>
+          <li>
+            <button onclick="w3_close()" class="close-button">
+              Close &times;
+            </button>
+          </li>
+          <li><a href="#" class="Tutorial">Tutorial</a></li>
+          <li><a href="#" class="Garage-button">Garages</a></li>
+        </ul>
       </div>
-      <div class="input">
-        <form action="/action_page.php">
-          <label for="input car">Input Car Here:</label><br />
-          <input type="text" id="input car" name="input car" size="50" /><br />
-          <input type="submit" value="Enter" />
-        </form>
+      <div class="sidenavopen">
+        <button class="w3-button" onclick="w3_open()">Menu</button>
       </div>
+    </div>
+    <div class="input">
+      <form action="/action_page.php">
+        <label for="input car">Input Car Here:</label><br />
+        <input type="text" id="input car" name="input car" size="50" /><br />
+        <input type="submit" value="Enter" />
+      </form>
     </div>
     <script>
       function w3_open() {
