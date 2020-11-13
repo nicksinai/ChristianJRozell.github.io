@@ -1,139 +1,32 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <style>
-      body,
-      html {
-        height: 100%;
-        margin: 0;
-      }
-      .garage-image {
-        position: fixed;
-        display: grid;
-        height: 100%;
-      }
-      .monkey {
-        position: relative;
-        text-align: left;
-        color: black;
-      }
-      .center {
-        position: fixed;
-        top: 15%;
-        left: 30%;
-        font-size: 120px;
-        text-align: center;
-        font-family: "Times New Roman", Times, serif;
-        font-style: italic;
-      }
-      .input {
-        position: fixed;
-        top: 50%;
-        left: 35%;
-        font-size: 35px;
-        text-align: center;
-      }
-      .menuContainer {
-        position: relative;
-      }
-      .w3-sidebar {
-        list-style-type: none;
-        font-size: 75px;
-        background-color: black;
-        margin: 0;
-        padding: 0;
-      }
-      .w3-button {
-        position: fixed;
-        top: 0px;
-        width: 10%;
-        height: 5%;
-        color: white;
-        font-size: 25px;
-        font-style: italic;
-        display: inline-block;
-        background-color: black;
-        border: none;
-      }
-      .Tutorial {
-        position: fixed;
-        color: white;
-        top: 7%;
-        font-family: "Times New Roman", Times, serif;
-        font-style: italic;
-        background-color: black;
-      }
-      .Garage-button {
-        position: fixed;
-        top: 20%;
-        color: white;
-        font-family: "Times New Roman", Times, serif;
-        font-style: italic;
-        background-color: black;
-      }
-      .close-button {
-        position: fixed;
-        top: 35%;
-        width: 8%;
-        height: 4%;
-        font-family: "Times New Roman", Times, serif;
-        font-style: italic;
-        font-size: 25px;
-        text-align: center;
-        padding-bottom: 25px;
-        border: none;
-        background-color: black;
-        color: white;
-      }
-      ul {
-        display: block;
-      }
-      li {
-        padding-top: 10px;
-      }
-    </style>
+    <style></style>
     <title>Dibs Game</title>
   </head>
   <body>
-    <div class="monkey">
-      <div class="menuContainer">
-        <img
-          class="garage-image"
-          src="garageimage.jpg"
-          alt="Dib Game"
-          style="width: 100%"
-        />
-        <div class="center">Dibs Game</div>
-        <ul>
-          <li><div class="w3-sidebar" id="sidebar"></div></li>
-          <li>
-            <button onclick="w3_close()" class="close-button">
-              Close &times;
-            </button>
-          </li>
-          <li><a href="#" class="Tutorial">Tutorial</a></li>
-          <li><a href="#" class="Garage-button">Garages</a></li>
-        </ul>
-      </div>
-      <div class="sidenavopen">
-        <button class="w3-button" onclick="w3_open()">Menu</button>
-      </div>
-    </div>
-    <div class="input">
-      <form action="/action_page.php">
-        <label for="input car">Input Car Here:</label><br />
-        <input type="text" id="input car" name="input car" size="50" /><br />
-        <input type="submit" value="Enter" />
-      </form>
-    </div>
+    <ul>
+      <li><button onclick="open()">Menu</button></li>
+      <li><button onclick="close()">Close</button></li>
+      <li><a href="tutorial">Tutorial</a></li>
+      <li><a href="Garage">Garage</a></li>
+    </ul>
+    <form action="yayyeet">
+      <label for="Input">Input Car Here</label>
+      <input type="search" name="input car" />
+      <input type="submit" value="Enter" />
+    </form>
     <script>
-      function w3_open() {
-        document.getElementById("sidebar").style.display = "block";
-        document.getElementById("sidebar").style.width = "30%";
-      }
-      function w3_close() {
-        document.getElementById("sidebar").style.display = "none";
+      function open() {
+        document.getElementById;
       }
     </script>
   </body>
 </html>
+<!-- html of
+sidebar
+input box
+backgorund
+then js of each
+then css of each
+ -->
