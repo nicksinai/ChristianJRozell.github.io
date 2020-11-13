@@ -1,15 +1,32 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <style></style>
+    <style>
+      .hide {
+        display: none;
+      }
+      ul {
+        list-style-type: none;
+        margin-left: 0px;
+        padding: 0px;
+      }
+    </style>
     <title>Dibs Game</title>
   </head>
   <body>
     <ul>
-      <li><button onclick="open()">Menu</button></li>
-      <li><button onclick="close()">Close</button></li>
-      <li><a href="tutorial">Tutorial</a></li>
-      <li><a href="Garage">Garage</a></li>
+      <li>
+        <button onclick="menuopen()" id="open-button" class="open-button">
+          Menu
+        </button>
+      </li>
+      <li>
+        <button onclick="menuclose()" id="close-button" class="hide">
+          Close
+        </button>
+      </li>
+      <li><a href="tutorial" class="hide">Tutorial</a></li>
+      <li><a href="Garage" class="hide">Garage</a></li>
     </ul>
     <form action="yayyeet">
       <label for="Input">Input Car Here</label>
@@ -17,8 +34,15 @@
       <input type="submit" value="Enter" />
     </form>
     <script>
-      function open() {
-        document.getElementById;
+      function menuopen() {
+        let x = document.getElementsByClassName("hide");
+        if (x.style.display === "none") {
+          x.style.display = "block";
+        }
+        // menu button unhides sidebar
+      }
+      function menuclose() {
+        document.getElementById("close-button").style.display = "none";
       }
     </script>
   </body>
