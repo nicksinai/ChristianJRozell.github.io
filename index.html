@@ -35,10 +35,7 @@
     </form>
     <script>
       function menuopen() {
-        let x = document.getElementsByClassName("hide");
-        if (x.style.display === "none") {
-          x.style.display = "block";
-        }
+        console.log(document.getElementsByClassName("hide")[0]);
         // menu button unhides sidebar
       }
       function menuclose() {
