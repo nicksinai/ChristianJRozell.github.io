@@ -20,13 +20,14 @@
           Menu
         </button>
       </li>
+
+      <li><a href="tutorial" id="tutorial" class="hide">Tutorial</a></li>
+      <li><a href="Garage" id="garage" class="hide">Garage</a></li>
       <li>
         <button onclick="menuclose()" id="close-button" class="hide">
           Close
         </button>
       </li>
-      <li><a href="tutorial" class="hide">Tutorial</a></li>
-      <li><a href="Garage" class="hide">Garage</a></li>
     </ul>
     <form action="yayyeet">
       <label for="Input">Input Car Here</label>
@@ -35,11 +36,21 @@
     </form>
     <script>
       function menuopen() {
-        console.log(document.getElementsByClassName("hide")[0]);
-        // menu button unhides sidebar
+        let menu_contents;
+        menu_contents = Array.from(document.getElementsByClassName("hide"));
+        console.log((menu_contents[0].style.display = "block"));
+        menu_contents[1].style.display = "block";
+        menu_contents[2].style.display = "block";
+        console.log(menu_contents);
+        // varible
       }
       function menuclose() {
-        document.getElementById("close-button").style.display = "none";
+        let menu_contents;
+        menu_contents = Array.from(document.getElementsByClassName("hide"));
+        console.log((menu_contents[0].style.display = "none"));
+        menu_contents[1].style.display = "none";
+        menu_contents[2].style.display = "none";
+        console.log(menu_contents);
       }
     </script>
   </body>
