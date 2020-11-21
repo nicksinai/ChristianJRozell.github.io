@@ -6,26 +6,31 @@
         margin: 0px;
         padding: 0px;
       }
+      ul {
+        list-style-type: none;
+        position: absolute;
+      }
       .hide {
         display: none;
         font-size: 65px;
         font-family: "Times New Roman", Times, serif;
         color: white;
-        border: 1px solid green;
-        width: 35%;
+        border: 1px solid red;
         background-color: black;
         /* close button is being dumb and doesn't want to be the same size, dont forget to fix it */
       }
-      ul {
-        list-style-type: none;
-      }
+
       .open-button {
         font-size: 50px;
         font-family: "Times New Roman", Times, serif;
         font-style: italic;
       }
       .input-box {
+        border: 1px solid red;
+        margin: auto;
+        width: 30%;
         text-align: center;
+        font-size: 20px;
         position: relative;
       }
     </style>
@@ -47,13 +52,11 @@
         </button>
       </li>
     </ul>
-    <div class="input-box">
-      <form action="yayyeet">
-        <label for="Input">Input Car Here</label>
-        <input type="search" name="input car" />
-        <input type="submit" value="Enter" />
-      </form>
-    </div>
+    <form action="yayyeet" class="input-box">
+      <label for="Input">Input Car Here</label>
+      <input type="search" name="input car" size="50" />
+      <input type="submit" value="Enter" />
+    </form>
     <script>
       function menuopen() {
         let menu_contents; //declares a variable
