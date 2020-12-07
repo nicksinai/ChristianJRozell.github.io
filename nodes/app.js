@@ -10,17 +10,3 @@ const server = http.createServer((req, res) => {
 server.listen(port, hostname, () => {
   console.log(`server running at http://${hostname}:${port}/\n`);
 });
-
-const chalk = require("chalk");
-const log = console.log;
-const readline = require("readline").createInterface({
-  input: process.stdin,
-  output: process.stdout,
-});
-
-readline.question("What color do you want\n", (usercolor) => {
-  readline.question("What's your name\n", (name) => {
-    log(chalk.keyword(usercolor)(`hi ${name}!`));
-    readline.close();
-  });
-});
