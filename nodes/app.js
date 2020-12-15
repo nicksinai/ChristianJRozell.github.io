@@ -1,12 +1,16 @@
-const { time } = require("console");
-const http = require("http");
-const hostname = "127.0.0.1";
+//create boiler plate
+//create the route/route handler
+//have input box send post request to the controller
+//create a javascript array
+//have controller add the data on the list
+//have the list shown to the user
+const express = require("express");
+const app = express();
 const port = 3000;
-const server = http.createServer((req, res) => {
-  res.statusCode = 200;
-  res.setHeader("Content-Type", "text/plain");
-  res.end("Ya Yeet!\n");
+
+app.listen(port, () => {
+  console.log(`Example app listening at http://localhost:${port}`);
 });
-server.listen(port, hostname, () => {
-  console.log(`server running at http://${hostname}:${port}/\n`);
-});
+
+const routes = require("./Routes/routes.js");
+app.use("/Routes/routes", routes);
