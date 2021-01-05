@@ -58,13 +58,15 @@ data.then((data) => {
   let option;
 
   //create a dropdown option for each object in the array
-  for (let i = 0; i < data.length; i++) {
+  for (let i = 0; i < data.results.length; i++) {
+    if (data.results[i].Make === "BMW") {
+      continue;
+    }
     option = document.createElement("option");
     console.log("hello");
-    option.text = data[i].Make;
-    option.value = data[i].Year;
+    option.text = data.results[i].Make;
     dropdown.add(option);
+    console.log(data.results);
   }
 });
 //fix for loop
-//google async await
