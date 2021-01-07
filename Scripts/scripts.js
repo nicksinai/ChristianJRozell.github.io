@@ -56,17 +56,26 @@ data.then((data) => {
   dropdown.selectedIndex = 0;
 
   let option;
-
+  let push_make_name;
+  let make_name = [];
+  let current_make;
+  let skip;
   //create a dropdown option for each object in the array
   for (let i = 0; i < data.results.length; i++) {
-    if (data.results[i].Make === "BMW") {
+    current_make = data.results[i].Make;
+    //if make_name includes a value from current make return true
+    skip = make_name.includes(current_make);
+    //if skip is true continue
+    if (skip) {
       continue;
     }
+    //If statement to jump over anything with the Make of "BMW"
+    //It has to run before BMW is iterated
     option = document.createElement("option");
-    console.log("hello");
     option.text = data.results[i].Make;
     dropdown.add(option);
-    console.log(data.results);
+    //adds current make to the mak_name array
+    push_make_name = make_name.push(current_make);
+    console.log(make_name);
   }
 });
-//fix for loop
