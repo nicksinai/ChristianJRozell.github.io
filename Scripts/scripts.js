@@ -39,27 +39,38 @@ let data = (async () => {
     }
   );
   const data = await response.json();
-  console.log(data);
   return data;
   //console.log(data); // Here you have the data that you need
   //console.log(JSON.stringify(data, null, 2));
 })();
+
 data.then((data) => {
   //targeting "cars_dropdown"
   let dropdown = document.getElementById("cars_dropdown");
   dropdown.length = 0;
   //declares the default option
-  let defaultOption = document.createElement("option");
-  defaultOption.text = "Choose Make/Manufactuer";
+  let MakeOption = document.createElement("option");
+  MakeOption.text = "Choose Make/Manufactuer";
   //adds the default option
-  dropdown.add(defaultOption);
+  dropdown.add(MakeOption);
   dropdown.selectedIndex = 0;
 
-  let option;
+  let model_dropdown = document.getElementById("model_dropdown");
+  model_dropdown.length = 0;
+
+  let ModelOption = document.createElement("option");
+  ModelOption.text = "Choose Model";
+
+  model_dropdown.add(ModelOption);
+  model_dropdown.selectedIndex = 0;
+
+  let make_option;
   let push_make_name;
   let make_name = [];
   let current_make;
   let skip;
+  let current_model;
+  let model_option;
   //create a dropdown option for each object in the array
   for (let i = 0; i < data.results.length; i++) {
     current_make = data.results[i].Make;
@@ -71,11 +82,15 @@ data.then((data) => {
     }
     //If statement to jump over anything with the Make of "BMW"
     //It has to run before BMW is iterated
-    option = document.createElement("option");
-    option.text = data.results[i].Make;
-    dropdown.add(option);
+    make_option = document.createElement("option");
+    make_option.text = data.results[i].Make;
+    dropdown.add(make_option);
     //adds current make to the mak_name array
     push_make_name = make_name.push(current_make);
-    console.log(make_name);
+
+    current_model = data.results[i].Model;
+    model_option = document.createElement("option");
+    model_option.text = data.results[i].Model;
+    model_dropdown.add(model_option);
   }
 });
