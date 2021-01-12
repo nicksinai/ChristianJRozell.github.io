@@ -69,8 +69,7 @@ data.then((data) => {
   let make_name = [];
   let current_make;
   let skip;
-  let current_model;
-  let model_option;
+
   //create a dropdown option for each object in the array
   for (let i = 0; i < data.results.length; i++) {
     current_make = data.results[i].Make;
@@ -87,10 +86,25 @@ data.then((data) => {
     dropdown.add(make_option);
     //adds current make to the mak_name array
     push_make_name = make_name.push(current_make);
+  }
+});
 
+function populate_model() {
+  let dropdown = document.getElementById("cars_dropdown");
+  dropdown.length = 0;
+
+  // let selected_make = dropdown.options[dropdown.selectedIndex].value;
+  //console.log(selected_make);
+
+  let current_model;
+  let model_option;
+  console.log(data);
+
+  for (let i = 0; i < data.results.length; i++) {
     current_model = data.results[i].Model;
     model_option = document.createElement("option");
     model_option.text = data.results[i].Model;
     model_dropdown.add(model_option);
   }
-});
+}
+//store data before processing data
