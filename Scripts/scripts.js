@@ -30,7 +30,7 @@ let data = (async () => {
     })
   );
   const response = await fetch(
-    `https://parseapi.back4app.com/classes/Carmodels_Car_Model_List?order=Model,Make,Year&excludeKeys=Category&where=${where}`,
+    `https://parseapi.back4app.com/classes/Carmodels_Car_Model_List?order=Model&excludeKeys=Category&where=${where}`,
     {
       headers: {
         "X-Parse-Application-Id": "ijyFjZ6qxEtHXo2V07pUI8uMfkelsmpxtWhbcQud", // This is your app's application id
@@ -69,7 +69,7 @@ data.then((data) => {
   let make_name = [];
   let current_make;
   let skip;
-
+  console.log(data);
   //create a dropdown option for each object in the array
   for (let i = 0; i < data.results.length; i++) {
     current_make = data.results[i].Make;
@@ -88,23 +88,60 @@ data.then((data) => {
     push_make_name = make_name.push(current_make);
   }
 });
-
 function populate_model() {
-  let dropdown = document.getElementById("cars_dropdown");
-  dropdown.length = 0;
+  let data = (async () => {
+    const where = encodeURIComponent(
+      JSON.stringify({
+        Make: {
+          $exists: true,
+        },
+        Model: {
+          $exists: true,
+        },
+        Year: {
+          $exists: true,
+        },
+      })
+    );
+    const response = await fetch(
+      `https://parseapi.back4app.com/classes/Carmodels_Car_Model_List?order=Model&excludeKeys=Category&where=${where}`,
+      {
+        headers: {
+          "X-Parse-Application-Id": "ijyFjZ6qxEtHXo2V07pUI8uMfkelsmpxtWhbcQud", // This is your app's application id
+          "X-Parse-REST-API-Key": "Ct7pA9aVNs2d7zVziMaCtcPhC3jdLndn9kXbgMml", // This is your app's REST API key
+        },
+      }
+    );
+    const data = await response.json();
+    return data;
+  })();
+  data.then((data) => {
+    let dropdown = document.getElementById("cars_dropdown");
 
-  // let selected_make = dropdown.options[dropdown.selectedIndex].value;
-  //console.log(selected_make);
+    let selected_make = dropdown.options[dropdown.selectedIndex].value;
+    console.log(selected_make);
 
-  let current_model;
-  let model_option;
-  console.log(data);
+    let current_make;
+    let model_option;
+    let current_model;
+    let model_name = [];
+    let model_skip;
+    let push_model_name;
 
-  for (let i = 0; i < data.results.length; i++) {
-    current_model = data.results[i].Model;
-    model_option = document.createElement("option");
-    model_option.text = data.results[i].Model;
-    model_dropdown.add(model_option);
-  }
+    //remove past selected models
+    for (let i = 0; i < data.results.length; i++) {
+      current_make = data.results[i].Make;
+      current_model = data.results[i].Model;
+      model_skip = model_name.includes(current_model);
+
+      if (!(selected_make === current_make) || model_skip) {
+        continue;
+      }
+
+      model_option = document.createElement("option");
+      model_option.text = data.results[i].Model;
+      model_dropdown.add(model_option);
+      push_model_name = model_name.push(current_model);
+    }
+  });
 }
-//store data before processing data
