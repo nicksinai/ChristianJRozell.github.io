@@ -30,7 +30,7 @@ let data = (async () => {
     })
   );
   const response = await fetch(
-    `https://parseapi.back4app.com/classes/Carmodels_Car_Model_List?order=Model&excludeKeys=Category&where=${where}`,
+    `https://parseapi.back4app.com/classes/Carmodels_Car_Model_List?limit=10000&order=Model&excludeKeys=Category&where=${where}`,
     {
       headers: {
         "X-Parse-Application-Id": "ijyFjZ6qxEtHXo2V07pUI8uMfkelsmpxtWhbcQud", // This is your app's application id
@@ -64,6 +64,14 @@ data.then((data) => {
   model_dropdown.add(ModelOption);
   model_dropdown.selectedIndex = 0;
 
+  let year_dropdown = document.getElementById("year_dropdown");
+
+  let YearOption = document.createElement("option");
+  YearOption.text = "Choose Year";
+
+  year_dropdown.add(YearOption);
+  year_dropdown.selectedIndex = 0;
+
   let make_option;
   let push_make_name;
   let make_name = [];
@@ -89,6 +97,18 @@ data.then((data) => {
   }
 });
 function populate_model() {
+  let dropdown_clear = document.getElementById("model_dropdown");
+  dropdown_clear = model_dropdown.length = 0;
+  dropdown_clear = year_dropdown.length = 0;
+
+  let ModelOption = document.createElement("option");
+  ModelOption.text = "Choose Model";
+  model_dropdown.add(ModelOption);
+
+  let YearOption = document.createElement("option");
+  YearOption.text = "Choose Year";
+  year_dropdown.add(YearOption);
+
   let data = (async () => {
     const where = encodeURIComponent(
       JSON.stringify({
@@ -104,7 +124,7 @@ function populate_model() {
       })
     );
     const response = await fetch(
-      `https://parseapi.back4app.com/classes/Carmodels_Car_Model_List?order=Model&excludeKeys=Category&where=${where}`,
+      `https://parseapi.back4app.com/classes/Carmodels_Car_Model_List?limit=10000&order=Model&excludeKeys=Category&where=${where}`,
       {
         headers: {
           "X-Parse-Application-Id": "ijyFjZ6qxEtHXo2V07pUI8uMfkelsmpxtWhbcQud", // This is your app's application id
@@ -119,7 +139,6 @@ function populate_model() {
     let dropdown = document.getElementById("cars_dropdown");
 
     let selected_make = dropdown.options[dropdown.selectedIndex].value;
-    console.log(selected_make);
 
     let current_make;
     let model_option;
@@ -142,6 +161,61 @@ function populate_model() {
       model_option.text = data.results[i].Model;
       model_dropdown.add(model_option);
       push_model_name = model_name.push(current_model);
+    }
+  });
+}
+function populate_year() {
+  let YearOption = document.createElement("option");
+  YearOption.text = "Choose Year";
+  year_dropdown.add(YearOption);
+
+  let data = (async () => {
+    const where = encodeURIComponent(
+      JSON.stringify({
+        Make: {
+          $exists: true,
+        },
+        Model: {
+          $exists: true,
+        },
+        Year: {
+          $exists: true,
+        },
+      })
+    );
+    const response = await fetch(
+      `https://parseapi.back4app.com/classes/Carmodels_Car_Model_List?limit=10000&order=Model&excludeKeys=Category&where=${where}`,
+      {
+        headers: {
+          "X-Parse-Application-Id": "ijyFjZ6qxEtHXo2V07pUI8uMfkelsmpxtWhbcQud", // This is your app's application id
+          "X-Parse-REST-API-Key": "Ct7pA9aVNs2d7zVziMaCtcPhC3jdLndn9kXbgMml", // This is your app's REST API key
+        },
+      }
+    );
+    const data = await response.json();
+    return data;
+  })();
+  data.then((data) => {
+    let year_dropdown = document.getElementById("year_dropdown");
+    let model_dropdown = document.getElementById("model_dropdown");
+    let dropdown = document.getElementById("cars_dropdown");
+
+    let selected_model =
+      model_dropdown.options[model_dropdown.selectedIndex].value;
+    console.log(selected_model);
+
+    let year_option;
+    let current_model;
+
+    for (let i = 0; i < data.results.length; i++) {
+      current_model = data.results[i].Model;
+      if (!(selected_model === current_model)) {
+        continue;
+      }
+
+      year_option = document.createElement("option");
+      year_option.text = data.results[i].Year;
+      year_dropdown.add(year_option);
     }
   });
 }
