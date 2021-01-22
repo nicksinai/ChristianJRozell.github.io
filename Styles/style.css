@@ -23,12 +23,12 @@ ul {
   font-family: "Times New Roman", Times, serif;
   font-style: italic;
 }
-.input-box {
+.input_box {
   border: 1px solid dodgerblue;
   width: 30%;
   font-size: 20px;
   position: relative;
-  top: 650px;
+  top: 350px;
   text-align: center;
   display: block;
   margin: auto;

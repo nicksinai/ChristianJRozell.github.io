@@ -165,10 +165,6 @@ function populate_model() {
   });
 }
 function populate_year() {
-  let YearOption = document.createElement("option");
-  YearOption.text = "Choose Year";
-  year_dropdown.add(YearOption);
-
   let data = (async () => {
     const where = encodeURIComponent(
       JSON.stringify({
