@@ -7,12 +7,6 @@
 const express = require("express");
 const app = express();
 const port = 3000;
-const secrets = require("../secrets/secrets");
-const mongoose = require("mongoose");
-const mongoDB = secrets.connection_string;
-mongoose.connect(mongoDB, { useNewUrlParser: true, useUnifiedTopology: true });
-const db = mongoose.connection;
-db.on("error", console.error.bind(console, "MongoDB connection error:"));
 
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`);
